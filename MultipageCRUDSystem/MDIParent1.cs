@@ -104,11 +104,16 @@ namespace MultipageCRUDSystem
             }
         }
 
+        void ShowForm(Form form)
+        {
+            form.MdiParent = this;
+            form.Show();
+            form.Activate();
+        }
+
         private void newStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form1 f1 = new Form1();
-            f1.MdiParent = this;
-            f1.Show();
+            ShowForm(Form1.Instance);
         }
     }
 }

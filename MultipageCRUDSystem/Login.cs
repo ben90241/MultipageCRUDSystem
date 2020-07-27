@@ -41,7 +41,7 @@ namespace MultipageCRUDSystem
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(" Error is " + ex.ToString());
             }
         }
     }

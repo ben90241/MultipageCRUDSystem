@@ -15,6 +15,21 @@ namespace MultipageCRUDSystem
     {
         SqlConnection sqlCon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Benson\source\repos\MultipageCRUDSystem\MultipageCRUDSystem\Database1.mdf;Integrated Security=True");
 
+        //Singleton pattern
+        public static Form1 _instance;
+
+        public static Form1 Instance
+        {
+            get
+            {
+                if(_instance==null)
+                {
+                    _instance = new Form1();
+                }
+                return _instance;
+            }
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -123,7 +138,7 @@ namespace MultipageCRUDSystem
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(" Error is " + ex.ToString());
             }
 
         }
@@ -146,7 +161,7 @@ namespace MultipageCRUDSystem
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(" Error is " + ex.ToString());
             }
         }
 
@@ -167,7 +182,7 @@ namespace MultipageCRUDSystem
             }
             catch(Exception ex)
             {
-
+                MessageBox.Show(" Error is " + ex.ToString());
             }
         }
 
@@ -203,8 +218,13 @@ namespace MultipageCRUDSystem
             }
             catch(Exception ex)
             {
-
+                MessageBox.Show(" Error is " + ex.ToString());
             }
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _instance = null;
         }
     }
 }
